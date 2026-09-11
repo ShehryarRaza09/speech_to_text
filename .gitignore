@@ -1,0 +1,41 @@
+﻿# Virtual environment
+venv/
+env/
+.venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+dist/
+*.egg-info/
+
+# Model caches (huge files!)
+models/
+*.gguf
+.cache/
+output/*.wav
+output/*.mp3
+output/*.txt
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Env / secrets
+.env
+*.key
+secrets.json
+
+# Logs
+*.log
