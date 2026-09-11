@@ -1,26 +1,11 @@
-"""
-Real-Time Speech → Text → Urdu/English Translation
-Entry point.
-"""
+﻿"""Speech-to-Text entry point."""
 import os
 import sys
 
-# Auto-install missing packages
-REQUIRED = ["faster_whisper", "sounddevice", "numpy", "soundfile", "deep_translator", "customtkinter"]
+# MUST be first — sets offline mode + performance env vars
+import bootstrap_offline  # noqa: F401
 
-def _bootstrap():
-    import subprocess
-    missing = []
-    for pkg in REQUIRED:
-        try:
-            __import__(pkg)
-        except ImportError:
-            missing.append(pkg)
-    if missing:
-        print(f"📦 Installing missing: {missing}")
-        subprocess.check_call([sys.executable, "-m", "pip", "install", *missing])
-
-_bootstrap()
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from ui.app import SpeechApp
 
